@@ -606,10 +606,6 @@ input {
     max-width: 960px;
   }
 
-  .nav__btns {
-    display: none;
-  }
-
   .home {
     padding-top: 11rem;
   }
