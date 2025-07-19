@@ -73,7 +73,25 @@ const contactForm = document.getElementById("contact-form"),
     contactEmail = document.getElementById("contact-email"),
     contactSubject = document.getElementById("contact-subject"),
     contactMessage = document.getElementById("contact-message"),
-    errorMessage = document.getElementById("error-message");
+    errorMessage = document.getElementById("error-message"),
+    emailError = document.getElementById("email-error");
+
+  document.getElementById("contact-email").addEventListener("blur", function () {
+  const email = this.value;
+
+  // Allowed domains
+  const allowedDomains = /@[\w.-]+\.(com|in|edu|org|co\.in)$/i;
+
+  // If email is not valid
+  if (email && !allowedDomains.test(email)) {
+    // Show alert once
+    setTimeout(() => {
+      alert("Only gmail.com, .in, .edu, .org, or .co.in domains are allowed.");
+    }, 100); // Delay helps avoid repeated triggering
+
+    this.value = "";
+  }
+});
 
 const sendEmail = (e) => {
     e.preventDefault();
